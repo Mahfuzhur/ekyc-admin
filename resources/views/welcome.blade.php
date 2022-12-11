@@ -59,34 +59,38 @@
                     <form>
                         <div class="form-group">
                             <label for="name">নাম</label>
-                            <input type="text" class="form-control" id="name" placeholder="নাম" required>
+                            <input type="text" name="b_name"  class="form-control" id="b_name" placeholder="নাম" required>
                         </div>
                         <div class="form-group">
                             <label for="b_name">Name</label>
-                            <input type="text" class="form-control" id="b_name" placeholder="name" required>
+                            <input type="text" name="name" class="form-control" id="name" placeholder="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="image">Image</label>
+                            <input type="file" name="image" class="form-control-file" id="image">
                         </div>
                         <div class="form-group">
                             <label for="f_name">পিতা</label>
-                            <input type="text" class="form-control" id="f_name" placeholder="পিতা" required>
+                            <input type="text" name="f_name" class="form-control" id="f_name" placeholder="পিতা" required>
                         </div>
                         <div class="form-group">
                             <label for="m_name">মাতা</label>
-                            <input type="text" class="form-control" id="m_name" placeholder="মাতা" required>
+                            <input type="text" name="m_name" class="form-control" id="m_name" placeholder="মাতা" required>
                         </div>
                         <div class="form-group">
                             <label for="date_of_birth">Date of Birth</label>
-                            <input type="date" class="form-control" id="date_of_birth" required>
+                            <input type="date" name="date_of_birth" class="form-control" id="date_of_birth" required>
                         </div>
 
                         <div class="form-group">
                             <label for="nid">NID No</label>
-                            <input type="text" class="form-control" id="nid" placeholder="NID No" required>
+                            <input type="text" name="nid" class="form-control" id="nid" placeholder="NID No" required>
                             <input type="hidden" class="form-control" id="pin">
                         </div>
 
                         <div class="form-group">
                             <label for="occupation">Occupation</label>
-                            <select class="form-control" id="occupation" required>
+                            <select name="occupation" class="form-control" id="occupation" required>
                                 <option disabled selected>Occupation</option>
                                 <option>ছাত্র/ছাত্রী</option>
                                 <option>ব্যবসা</option>
@@ -96,7 +100,7 @@
                         </div>
                         <div class="form-group">
                             <label for="blood_group">Blood Group</label>
-                            <select class="form-control" id="blood_group" required>
+                            <select name="blood_group" class="form-control" id="blood_group" required>
                                 <option disabled selected>Blood Group</option>
                                 <option>A+</option>
                                 <option>A-</option>
@@ -108,8 +112,8 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="present">ঠিকানা</label>
-                            <textarea class="form-control" id="present" rows="3" required></textarea>
+                            <label for="present_address">ঠিকানা</label>
+                            <textarea name="present_address" class="form-control" id="present_address" rows="3" required></textarea>
                         </div>
                         <div class="form-group">
                             <input type="submit" name="Submit">

@@ -56,7 +56,8 @@
 
                 </div>
                 <div class="col-8">
-                    <form>
+                    <form action="{{route('add-nid')}}" method="POST">
+                        @csrf
                         <div class="form-group">
                             <label for="name">নাম</label>
                             <input type="text" name="b_name"  class="form-control" id="b_name" placeholder="নাম" required>

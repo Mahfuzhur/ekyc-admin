@@ -12,10 +12,6 @@ use Illuminate\Support\Facades\DB;
 class NIDInfoRepository
 {
     public function addNID(){
-//        dd(public_path('images'));
-//        $request->validate([
-//            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-//        ]);
         DB::beginTransaction();
         try {
             $imageName = time().'.'.request()->image->extension();
@@ -23,7 +19,7 @@ class NIDInfoRepository
             $image_result = request()->image->move(public_path('images'), $imageName);
 //        request()->image=$imageName;
             $data = request()->merge(['image' => $imageName]);
-            $result = NIDInfo::create(["b_name"=> request()->b_name,"name"=> request()->name,"f_name"=> request()->f_name,"m_name"=> request()->m_name,"spouse"=> request()->spouse,"date_of_birth"=> request()->date_of_birth,"nid"=>request()->nid,"pin"=> request()->pin,"occupation"=> request()->occupation,"blood_group"=> request()->blood_group,"present_address"=> request()->present_address,"permanent_address"=> request()->permanent_address,"image" => $imageName ]);
+            $result = NIDInfo::create(["b_name"=> request()->b_name,"name"=> request()->name,"f_name"=> request()->f_name,"m_name"=> request()->m_name,"gender"=>request()->gender,"spouse"=> request()->spouse,"date_of_birth"=> request()->date_of_birth,"nid"=>request()->nid,"pin"=> request()->pin,"occupation"=> request()->occupation,"blood_group"=> request()->blood_group,"present_address"=> request()->present_address,"permanent_address"=> request()->permanent_address,"image" => $imageName ]);
             DB::commit();
         }catch (Exception $exception){
             DB::rollBack();
@@ -64,5 +60,15 @@ class NIDInfoRepository
             ]
 
         ]);
+    }
+
+    public function updateNID($id){
+
+        $imageName = request()->image_name;
+        if (request()->hasFile('image')){
+            $imageName = time().'.'.request()->image->extension();
+            $image_result = request()->image->move(public_path('images'), $imageName);
+        }
+        $result = NIDInfo::where('id',$id)->update(["b_name"=> request()->b_name,"name"=> request()->name,"f_name"=> request()->f_name,"m_name"=> request()->m_name,"gender"=>request()->gender,"spouse"=> request()->spouse,"date_of_birth"=> request()->date_of_birth,"nid"=>request()->nid,"pin"=> request()->pin,"occupation"=> request()->occupation,"blood_group"=> request()->blood_group,"present_address"=> request()->present_address,"permanent_address"=> request()->permanent_address,"image" => $imageName]);
     }
 }

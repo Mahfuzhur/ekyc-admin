@@ -13,12 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('nid_info', function (Blueprint $table) {
+        Schema::create('nid_infos', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('b_name');
             $table->string('f_name');
             $table->string('m_name');
+            $table->string('spouse')->nullable();
             $table->string('image');
             $table->date('date_of_birth');
             $table->bigInteger('nid');
@@ -27,7 +28,6 @@ return new class extends Migration
             $table->string('blood_group');
             $table->longText('present_address');
             $table->longText('permanent_address');
-
             $table->timestamps();
         });
     }
@@ -39,6 +39,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('nid_info');
+        Schema::dropIfExists('nid_infos');
     }
 };

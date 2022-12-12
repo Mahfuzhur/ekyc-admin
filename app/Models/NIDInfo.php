@@ -8,5 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class NIDInfo extends Model
 {
     use HasFactory;
+    protected $table = 'nid_infos';
     protected $guarded =[];
 }

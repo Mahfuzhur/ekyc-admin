@@ -56,7 +56,7 @@
 
                 </div>
                 <div class="col-8">
-                    <form action="{{route('add-nid')}}" method="POST">
+                    <form action="{{route('add-nid')}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
                             <label for="name">নাম</label>
@@ -71,12 +71,24 @@
                             <input type="file" name="image" class="form-control-file" id="image">
                         </div>
                         <div class="form-group">
+                            <label for="gender">Occupation</label>
+                            <select name="gender" class="form-control" id="gender" required>
+                                <option disabled selected>gender</option>
+                                <option>Male</option>
+                                <option>Female</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
                             <label for="f_name">পিতা</label>
                             <input type="text" name="f_name" class="form-control" id="f_name" placeholder="পিতা" required>
                         </div>
                         <div class="form-group">
                             <label for="m_name">মাতা</label>
                             <input type="text" name="m_name" class="form-control" id="m_name" placeholder="মাতা" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="spouse">Spouse</label>
+                            <input type="text" name="spouse" class="form-control" id="spouse" placeholder="Spouse">
                         </div>
                         <div class="form-group">
                             <label for="date_of_birth">Date of Birth</label>
@@ -86,17 +98,20 @@
                         <div class="form-group">
                             <label for="nid">NID No</label>
                             <input type="text" name="nid" class="form-control" id="nid" placeholder="NID No" required>
-                            <input type="hidden" class="form-control" id="pin">
+                        </div>
+                        <div class="form-group">
+                            <label for="nid">Pin</label>
+                            <input type="text" name="pin" class="form-control" id="pin" placeholder="Pin" required>
                         </div>
 
                         <div class="form-group">
                             <label for="occupation">Occupation</label>
                             <select name="occupation" class="form-control" id="occupation" required>
                                 <option disabled selected>Occupation</option>
-                                <option>ছাত্র/ছাত্রী</option>
-                                <option>ব্যবসা</option>
-                                <option>চাকরি</option>
-                                <option>অবসরপ্রাপ্ত</option>
+                                <option>Student</option>
+                                <option>Private Employee</option>
+                                <option>Government Employee</option>
+                                <option>Businessmen</option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -113,11 +128,15 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="present_address">ঠিকানা</label>
+                            <label for="present_address">বর্তমান ঠিকানা</label>
                             <textarea name="present_address" class="form-control" id="present_address" rows="3" required></textarea>
                         </div>
                         <div class="form-group">
-                            <input type="submit" name="Submit">
+                            <label for="permanent_address">স্থায়ী ঠিকানা</label>
+                            <textarea name="permanent_address" class="form-control" id="permanent_address" rows="3" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit">
                         </div>
 
                     </form>
